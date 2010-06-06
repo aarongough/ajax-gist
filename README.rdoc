@@ -1,4 +1,4 @@
-== Ajax-Gist
+= Ajax-Gist
 
 Ajax-Gist is a simple web-service that acts as a proxy between your website and the {GitHub Gist service}[http://gist.github.com/] to provide a translation of the Gist embed code that is AJAX friendly.
 
