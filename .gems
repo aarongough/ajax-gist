@@ -1,1 +1,2 @@
-rails
+rails --version "2.3.6"
+pg
