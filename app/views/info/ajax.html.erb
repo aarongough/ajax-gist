@@ -1,29 +1,32 @@
 <p>Below is a simple example demonstrating how to insert a Gist into a page dynamically.</p>
 
-<p>Click the links for the demo:</p>
+<p>(Click the links for the demo, <a href="http://github.com/aarongough/ajax-gist/blob/master/app/views/info/ajax.html.erb">see the source code</a>)</p>
 
 <p><a id="link1" href="#">Insert Gist 1</a> | <a id="link2" href="#">Insert Gist 2</a> | <a id="link3" href="#">Insert Gist 3</a></p>
 
+<div id="example_container">
+
+</div>
+
 <script type="text/javascript">
+
+function insertGist(id)
+  {
+  removeGistContainer();
+  var example_container = document.getElementById('example_container');
+  var script = document.createElement('script');
+  script.type = "text/javascript";
+  script.src = "http://ajax-gist.com/gist/" + id + ".js";
+  var container = document.createElement('div');
+  container.id = "gist_container";
+  container.appendChild(script);
+  example_container.appendChild(container);
+  }
 
 function removeGistContainer()
   {
   var gistContainer = document.getElementById("gist_container");
   if(gistContainer) gistContainer.parentNode.removeChild(gistContainer);
-  }
-  
-function insertGist(id)
-  {
-  removeGistContainer();
-  var body = document.getElementsByTagName('body')[0];
-  var script = document.createElement('script');
-  script.type = "text/javascript";
-  script.src = "http://ajax-gist.com/gist/" + id + ".js";
-  alert(script.src);
-  var container = document.createElement('div');
-  container.id = "gist_container";
-  container.appendChild(script);
-  body.appendChild(container);
   }
   
 function setupHandlers()

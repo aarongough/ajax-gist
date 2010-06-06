@@ -3,6 +3,7 @@
   <head>
     <title>AjaxGist - Easily embed GitHub Gists into your website using AJAX</title>
     <link href="/stylesheets/styles.css" rel="stylesheet" />
+    <link href="/fonts/bitstream-vera-sans/stylesheet.css" rel="stylesheet" />
   </head>
   <body>
     <script type="text/javascript">
@@ -16,17 +17,28 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
-  
-    <div id="container">
+
+    <div id="header_container">  
       <div id="header">
-        <h1 id="logo">Ajax-Gist</h1>
-      </div>
-      
-      <%= yield %>
-      
-      <div id="footer">
-        Service provided and maintained by <a href="http://thingsaaronmade.com/">Aaron Gough</a>
+        <h1 id="logo"><a href="/">Ajax-Gist</a></h1>
+        
+        <div id="menu">
+          <a href="/examples/overview">Usage Examples</a> | <a href="mailto:aaron@aarongough.com">Feedback</a>
+        </div>
       </div>
     </div>
+    
+    <div id="page_container">
+      <div id="container">
+        <%= yield %>
+      </div>
+    </div>
+    
+    <div id="footer_container">
+      <div id="footer">
+        Service provided and maintained by <a href="http://thingsaaronmade.com/">Aaron Gough</a> | <a href="http://github.com/aarongough/ajax-gist">Source Code</a> | Feedback and bug reports to: <a href="mailto:aaron@aarongough.com">aaron@aarongough.com</a>
+      </div>
+    </div>
+    
   </body>
 </html>

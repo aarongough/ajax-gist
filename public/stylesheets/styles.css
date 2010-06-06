@@ -1,9 +1,10 @@
 body{
 margin: 0;
 padding: 0;
-font: 14px/20px Verdana, sans-serif;
-background: #efefef;
+font: 14px/22px 'BitstreamVeraSansRoman', Verdana, sans-serif;
+background: #585858;
 text-align: center;
+color: #2a2a2a;
 }
 
 pre{
@@ -13,10 +14,87 @@ background: white;
 font-family: monospace;
 }
 
-#container{
-width: 760px;
-margin: 0 auto;
-padding: 40px 0;
-text-align: left;
+a{
+color: #2a2a2a;
+text-decoration: none;
+border: 1px solid #8A8A8A;
+border-width: 0 0 1px 0;
 }
 
+a:hover{
+border: 1px solid white;
+border-width: 0 0 1px 0;
+}
+
+#header_container{
+color: #efefef;
+border: 1px solid #2a2a2a;
+border-width: 0 0 1px 0;
+}
+
+#header{
+width: 760px;
+margin: 0 auto;
+text-align: left;
+height: 100px;
+position: relative;
+}
+
+#logo{
+position: absolute;
+bottom: 10px; 
+left: 20px;
+}
+
+#logo a{
+border: 0 !important;
+font-size: 50px;
+}
+
+#menu{
+position: absolute;
+bottom: 25px;
+right: 20px;
+}
+
+#menu a{
+margin: 0 10px;
+}
+
+#page_container{
+background: #efefef;
+}
+
+#container{
+width: 720px;
+margin: 0 auto;
+padding: 0 20px;
+padding: 20px 0;
+text-align: left;
+min-height: 300px;
+}
+
+#container a:hover{
+border: 1px solid #2a2a2a;
+border-width: 0 0 1px 0;
+}
+
+#footer_container{
+border: 8px solid #2a2a2a;
+border-width: 8px 0 0 0;
+color: #efefef;
+}
+
+#footer{
+width: 740px;
+margin: 0 auto;
+padding-right: 20px;
+height: 40px;
+line-height: 40px;
+font-size: 10px;
+text-align: right;
+}
+
+#header a, #footer a{
+color: white;
+}
