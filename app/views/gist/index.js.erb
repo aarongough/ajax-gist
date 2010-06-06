@@ -1,0 +1,29 @@
+function renderGist<%= h @id.to_s -%> ()
+  {
+  var scriptTags = document.getElementsByTagName('script');
+  for( var x = 0; x < scriptTags.length; x++)
+    {
+    if(scriptTags[x].src == "http://ajax-gist.com/gist/<%= h @id.to_s -%>.js")
+      {
+      var gistScriptTag = scriptTags[x];
+      }
+    }
+  if(typeof(gistScriptTag) == "undefined")
+    {
+    alert("The gist embed script tag was not able to be found");
+    return;
+    }
+  if(!document.getElementById('ajax_gist_embed_stylsheet'))
+    {
+    var stylesheetTag = document.createElement('link');
+    stylesheetTag.id = "ajax_gist_embed_stylsheet";
+    stylesheetTag.href = "http://gist.github.com/stylesheets/gist/embed.css";
+    stylesheetTag.rel = "stylesheet";
+    gistScriptTag.insertBefore(stylesheetTag);
+    }
+  var gistDiv = document.createElement('div');
+  gistDiv.innerHtml = "<%= @gist_markup -%>";
+  gistScriptTag.insertBefore(gistDiv);
+  }
+  
+window.setTimeout(renderGist<%= h @id.to_s -%>, 1000);
