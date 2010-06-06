@@ -1,0 +1,22 @@
+body{
+margin: 0;
+padding: 0;
+font: 14px/20px Verdana, sans-serif;
+background: #efefef;
+text-align: center;
+}
+
+pre{
+padding: 10px;
+border: 1px solid #2a2a2a;
+background: white;
+font-family: monospace;
+}
+
+#container{
+width: 760px;
+margin: 0 auto;
+padding: 40px 0;
+text-align: left;
+}
+
