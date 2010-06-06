@@ -1,4 +1,4 @@
-def renderGist<%= h @id.to_s -%> ()
+function renderGist<%= h @id.to_s -%> ()
   {
   var scriptTags = document.getElementsByTagName('script');
   for( var x = 0; x < scriptTags.length; x++)
@@ -13,7 +13,7 @@ def renderGist<%= h @id.to_s -%> ()
     alert("The gist embed script tag was not able to be found");
     return;
     }
-  if(!document.getElementsById('ajax_gist_embed_stylsheet'))
+  if(!document.getElementById('ajax_gist_embed_stylsheet'))
     {
     var stylesheetTag = document.createElement('link');
     stylesheetTag.id = "ajax_gist_embed_stylsheet";
@@ -26,4 +26,4 @@ def renderGist<%= h @id.to_s -%> ()
   gistScriptTag.insertBefore(gistDiv);
   }
   
-renderGist<%= h @id.to_s -%> ();
+window.setTimeout(renderGist<%= h @id.to_s -%>, 1000);
