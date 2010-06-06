@@ -32,13 +32,13 @@ class AjaxGist
     embed_code = embed_code.gsub("document.write('", '')
     embed_code = embed_code.gsub(/'\)\s*$/, '')
     if(embed_code == "deleted.")
-      return notice("This Gist has been deleted but it's owner or by GitHub.")
+      return notice("Gist ID: #{id.to_i} has been deleted by it's owner or by GitHub.")
     end
     embed_code
   end
   
   def self.notice(notice)
-    "<span style=\\\"color: red; font-weight: bold;\\\">#{notice}</span>"
+    "<div style=\\\"border: 1px solid silver; padding: 6px; background: white;\\\"><span style=\\\"color: red; font-weight: bold;\\\">#{notice}</span></div>"
   end
 
 end
