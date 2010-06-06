@@ -3,7 +3,7 @@ function renderGist<%= h @id.to_s -%> ()
   var scriptTags = document.getElementsByTagName('script');
   for( var x = 0; x < scriptTags.length; x++)
     {
-    if(scriptTags[x].src == "http://ajax-gist.com/gist/<%= h @id.to_s -%>.js")
+    if(scriptTags[x].src.match("/gist/<%= h @id.to_s -%>.js"))
       {
       var gistScriptTag = scriptTags[x];
       }
@@ -19,11 +19,11 @@ function renderGist<%= h @id.to_s -%> ()
     stylesheetTag.id = "ajax_gist_embed_stylsheet";
     stylesheetTag.href = "http://gist.github.com/stylesheets/gist/embed.css";
     stylesheetTag.rel = "stylesheet";
-    gistScriptTag.insertBefore(stylesheetTag);
+    gistScriptTag.parentNode.insertBefore(stylesheetTag, gistScriptTag);
     }
   var gistDiv = document.createElement('div');
-  gistDiv.innerHtml = "<%= @gist_markup -%>";
-  gistScriptTag.insertBefore(gistDiv);
+  gistDiv.innerHTML = "<%= @gist_markup -%>";
+  gistScriptTag.parentNode.insertBefore(gistDiv, gistScriptTag);
   }
   
-window.setTimeout(renderGist<%= h @id.to_s -%>, 1000);
+window.setTimeout(renderGist<%= h @id.to_s -%>, 100);
