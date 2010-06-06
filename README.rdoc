@@ -1,10 +1,10 @@
 == Ajax-Gist
 
-Ajax-Gist is a simple web-service that acts as a proxy between your website and the [GitHub Gist service]{http://gist.github.com} to provide a translation of the Gist embed code that is AJAX friendly.
+Ajax-Gist is a simple web-service that acts as a proxy between your website and the {GitHub Gist service}[http://gist.github.com/] to provide a translation of the Gist embed code that is AJAX friendly.
 
 The normal Gist embed code uses Javascript 'document.write' commands to insert the Gist into your webpage. This is a problem when you want to insert a Gist after the page has loaded as 'document.write' will wipe out the current content of the page!
 
-This service is mainly aimed at people that need to embed Gists in their application in a non-standard fashion. The service was inspired by the need to embed Gists in pages via AJAX for [ReadMyCode.org]{http://readmycode.org/}
+This service is mainly aimed at people that need to embed Gists in their application in a non-standard fashion. The service was inspired by the need to embed Gists in pages via AJAX for {ReadMyCode.org}[http://readmycode.org/]
 
 To use the service simply grab the Gist ID that you're after and embed it in a script tag pointing to the web-service like so:
 
@@ -12,7 +12,7 @@ To use the service simply grab the Gist ID that you're after and embed it in a s
                                            ^ Gist ID
 
 
-Check out the [examples page]{http://ajax-gist.com/examples/overview} to see simple demos using the service both statically and dynamically.
+Check out the {examples page}[http://ajax-gist.com/examples/overview] to see simple demos using the service both statically and dynamically.
 
 Gists accessed via this web-service are cached for 30 minutes, so if you make any changes to an existing Gist it will take 30 minutes before you see the changes.
 
