@@ -29,4 +29,4 @@ function renderGist<%= h @id.to_s -%> ()
   gistScriptTag.parentNode.insertBefore(gistDiv, gistScriptTag);
   }
   
-window.setTimeout(renderGist<%= h @id.to_s -%>, 100);
+window.setTimeout(renderGist<%= h @id.to_s -%>, 20);
