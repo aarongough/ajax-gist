@@ -1,7 +1,7 @@
 require 'net/http'
 require 'uri'
 
-class AjaxGist
+class Gist
 
   def self.base_url
     "http://gist.github.com/"

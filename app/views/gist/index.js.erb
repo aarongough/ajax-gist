@@ -1,12 +1,12 @@
 // AJAX-Friendly Gist provided by http://ajax-gist.com/
 // Provided and maintained by Aaron Gough. Feedback and bug reports to aaron@aarongough.com
 
-function renderGist<%= h @id.to_s -%> ()
+function renderGist<%= @id.to_s -%> ()
   {
   var scriptTags = document.getElementsByTagName('script');
   for( var x = 0; x < scriptTags.length; x++)
     {
-    if(scriptTags[x].src.match("/gist/<%= h @id.to_s -%>.js"))
+    if(scriptTags[x].src.match("/gist/<%= @id.to_s -%>.js"))
       {
       var gistScriptTag = scriptTags[x];
       }
@@ -25,8 +25,8 @@ function renderGist<%= h @id.to_s -%> ()
     gistScriptTag.parentNode.insertBefore(stylesheetTag, gistScriptTag);
     }
   var gistDiv = document.createElement('div');
-  gistDiv.innerHTML = "<%= @gist_markup -%>";
+  gistDiv.innerHTML = "<%= raw @gist_markup -%>";
   gistScriptTag.parentNode.insertBefore(gistDiv, gistScriptTag);
   }
   
-window.setTimeout(renderGist<%= h @id.to_s -%>, 20);
+window.setTimeout(renderGist<%= @id.to_s -%>, 20);

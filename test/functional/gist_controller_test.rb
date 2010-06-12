@@ -24,7 +24,7 @@ class GistControllerTest < ActionController::TestCase
   test "index response should include gist markup" do
     get :index, :id => 1010
     assert @response.body.include?('http://gist.github.com/stylesheets/gist/embed.css'), "Response body should include Gist stylesheet url"
-    assert @response.body.include?('<div id=\"gist-'), "Response body should include Gist markup"
+    assert @response.body.include?('<div id=\"gist-'), "Response body should include Gist markup \n #{@response.body}"
     assert !@response.body.include?('document.write('), "Response body should not include document.write"
   end
   
