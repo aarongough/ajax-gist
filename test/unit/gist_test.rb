@@ -36,6 +36,11 @@ class GistTest < ActiveSupport::TestCase
     assert gist.include?('deleted'), "Gist markup did not include deletion message"
   end
   
+  test "Gist.gist_embed_code for gist ID that has not yet been assigned should return 'no longer available' message." do
+    gist = Gist.gist_embed_code(99999999)
+    assert gist.include?('no longer available'), "Gist markup did not include 'no longer available' message"
+  end
+  
   test "Gist.gist_markup_for should raise error if not supplied with id" do
     assert_raises ArgumentError do
       Gist.gist_markup_for

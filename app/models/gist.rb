@@ -19,10 +19,10 @@ class Gist
         EventMachine.stop
       end
     end
-    if(github_response.response)
-      github_response.response
-    else
+    if(!github_response.response || github_response.response_header.status == 404)
       notice("This Gist is no longer available, please check your URL")
+    else
+      github_response.response
     end
   end
   
