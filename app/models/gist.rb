@@ -1,7 +1,6 @@
-require 'net/http'
-require 'uri'
+require 'em-synchrony/em-http'
 
-class AjaxGist
+class Gist
 
   def self.base_url
     "http://gist.github.com/"
@@ -12,16 +11,18 @@ class AjaxGist
   end
   
   def self.gist_embed_code(id)
-    begin
-      github_response = Net::HTTP.get_response(URI.parse(self.gist_embed_url_for_id(id)))
-    rescue SocketError, Errno::ENETDOWN
-      return notice("There was a network error while trying to contact the GitHub Gist service.")
-    end
-    case github_response
-      when Net::HTTPSuccess then github_response.body
-      when Net::HTTPNotModified then github_response.body
+    if(EventMachine.reactor_running?)
+      github_response = EventMachine::HttpRequest.new(self.gist_embed_url_for_id(id)).get
     else
+      EventMachine.synchrony do
+        github_response = EventMachine::HttpRequest.new(self.gist_embed_url_for_id(id)).get
+        EventMachine.stop
+      end
+    end
+    if(!github_response.response || github_response.response_header.status == 404)
       notice("This Gist is no longer available, please check your URL")
+    else
+      github_response.response
     end
   end
   

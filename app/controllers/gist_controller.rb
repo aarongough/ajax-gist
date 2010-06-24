@@ -5,12 +5,10 @@ class GistController < ApplicationController
     if(params[:id])
       expires_in 30.minutes, :public => true, 'max-stale' => 10.minutes
     
-      @gist_markup = AjaxGist.gist_markup_for(params[:id].to_i)
+      @gist_markup = Gist.gist_markup_for(params[:id].to_i)
       @id = params[:id].to_i
       
-      respond_to do |format|
-        format.js
-      end
+      render :file => "#{Rails.root}/app/views/gist/index.js.erb"
     else
       head :status => :bad_request
     end
