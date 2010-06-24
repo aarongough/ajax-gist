@@ -8,7 +8,7 @@ class GistController < ApplicationController
       @gist_markup = Gist.gist_markup_for(params[:id].to_i)
       @id = params[:id].to_i
       
-      render :file => "#{RAILS_ROOT}/app/views/gist/index.js.erb"
+      render :file => "#{Rails.root}/app/views/gist/index.js.erb"
     else
       head :status => :bad_request
     end
